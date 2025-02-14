@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import sys
 import warnings
-
+import random
 from datetime import datetime
 
 from crewai_seo_article.crew import CrewaiSeoArticle
@@ -17,9 +17,20 @@ def run():
     """
     Run the crew.
     """
+    # Available gauge values from the temperature recommendation table
+    gauge_options = ['16', '12', '9', '7', '5', '3']
+    product_options = ['T-Shirt', 'Pullover']
+    
     inputs = {
-        'topic': 'AI LLMs',
-        'current_year': str(datetime.now().year)
+        'Produktname': random.choice(product_options),
+        'Material': '100% Kaschmir',
+        'Strickart': 'Strickpullover',
+        'Maschendichte': random.choice(gauge_options),
+        'Garnfeinheit': '20/22',
+        'Passform': 'Slim Fit',
+        'Farbe': 'Schwarz',
+        # 'topic': 'AI LLMs',
+        # 'current_year': str(datetime.now().year)
     }
     
     try:
@@ -33,7 +44,14 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "AI LLMs"
+        "Produktname": "T-Shirt",
+        "Material": "100% Baumwolle",
+        "Strickart": "Strickpullover",
+        "Maschendichte": "22 Gauge",
+        "Garnfeinheit": "20/22",
+        "Passform": "Slim Fit",
+        "Farbe": "Schwarz",
+        # 'topic': 'AI LLMs',
     }
     try:
         CrewaiSeoArticle().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
@@ -56,7 +74,14 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        "topic": "AI LLMs"
+        'Produktname': 'T-Shirt',
+        'Material': '100% Baumwolle',
+        'Strickart': 'Strickpullover',
+        'Maschendichte': '22 Gauge',
+        'Garnfeinheit': '20/22',
+        'Passform': 'Slim Fit',
+        'Farbe': 'Schwarz',
+        # "topic": "AI LLMs"
     }
     try:
         CrewaiSeoArticle().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
