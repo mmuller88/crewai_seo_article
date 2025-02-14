@@ -18,8 +18,15 @@ def run():
     Run the crew.
     """
     inputs = {
-        'topic': 'AI LLMs',
-        'current_year': str(datetime.now().year)
+        'Produktname': 'T-Shirt',
+        'Material': '100% Baumwolle',
+        'Strickart': 'Strickpullover',
+        'Maschendichte': '22 Gauge',
+        'Garnfeinheit': '20/22',
+        'Passform': 'Slim Fit',
+        'Farbe': 'Schwarz',
+        # 'topic': 'AI LLMs',
+        # 'current_year': str(datetime.now().year)
     }
     
     try:
@@ -33,7 +40,14 @@ def train():
     Train the crew for a given number of iterations.
     """
     inputs = {
-        "topic": "AI LLMs"
+        "Produktname": "T-Shirt",
+        "Material": "100% Baumwolle",
+        "Strickart": "Strickpullover",
+        "Maschendichte": "22 Gauge",
+        "Garnfeinheit": "20/22",
+        "Passform": "Slim Fit",
+        "Farbe": "Schwarz",
+        # 'topic': 'AI LLMs',
     }
     try:
         CrewaiSeoArticle().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
@@ -56,7 +70,14 @@ def test():
     Test the crew execution and returns the results.
     """
     inputs = {
-        "topic": "AI LLMs"
+        'Produktname': 'T-Shirt',
+        'Material': '100% Baumwolle',
+        'Strickart': 'Strickpullover',
+        'Maschendichte': '22 Gauge',
+        'Garnfeinheit': '20/22',
+        'Passform': 'Slim Fit',
+        'Farbe': 'Schwarz',
+        # "topic": "AI LLMs"
     }
     try:
         CrewaiSeoArticle().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
