@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import sys
 import warnings
-
+import random
 from datetime import datetime
 
 from crewai_seo_article.crew import CrewaiSeoArticle
@@ -17,11 +17,15 @@ def run():
     """
     Run the crew.
     """
+    # Available gauge values from the temperature recommendation table
+    gauge_options = ['16', '12', '9', '7', '5', '3']
+    product_options = ['T-Shirt', 'Pullover']
+    
     inputs = {
-        'Produktname': 'T-Shirt',
-        'Material': '100% Baumwolle',
+        'Produktname': random.choice(product_options),
+        'Material': '100% Kaschmir',
         'Strickart': 'Strickpullover',
-        'Maschendichte': '22 Gauge',
+        'Maschendichte': random.choice(gauge_options),
         'Garnfeinheit': '20/22',
         'Passform': 'Slim Fit',
         'Farbe': 'Schwarz',

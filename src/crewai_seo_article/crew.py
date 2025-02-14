@@ -1,5 +1,6 @@
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
+from crewai.knowledge.source.text_file_knowledge_source import TextFileKnowledgeSource
 
 # If you want to run a snippet of code before or after the crew starts,
 # you can use the @before_kickoff and @after_kickoff decorators
@@ -15,6 +16,11 @@ class CrewaiSeoArticle():
     # Tasks: https://docs.crewai.com/concepts/tasks#yaml-configuration-recommended
     agents_config = 'config/agents.yaml'
     tasks_config = 'config/tasks.yaml'
+    
+	# Create a text file knowledge source
+    text_source = TextFileKnowledgeSource(
+        file_paths=["article_content_writer_temperatur_empfehlung.md"]
+    )
 
     # If you would like to add tools to your agents, you can learn more about it here:
     # https://docs.crewai.com/concepts/agents#agent-tools
@@ -36,7 +42,8 @@ class CrewaiSeoArticle():
     def article_content_writer(self) -> Agent:
         return Agent(
             config=self.agents_config['article_content_writer'],
-            verbose=True
+            verbose=True,
+            knowledge_sources=[self.text_source]
         )
 
     # To learn more about structured task outputs,

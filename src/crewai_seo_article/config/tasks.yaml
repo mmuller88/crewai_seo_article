@@ -12,7 +12,7 @@ article_content_task:
     - **Farbe:** {Farbe}
 
     Die Beschreibung soll zwischen 75 und 125 Wörtern lang
-    sein. 
+    sein und die Temperature_Empfehlung beinhalten.
   expected_output: >
     Eine verständliche und ansprechende Produktbeschreibung in deutscher Sprache,
     die alle genannten Produkteigenschaften enthält und zwischen 75 und 125 Wörtern lang ist.
