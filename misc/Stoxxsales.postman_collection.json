@@ -197,7 +197,7 @@
 					"response": []
 				},
 				{
-					"name": "/status/7526ef25-8ae8-4826-90ff-09b6dd47ddd3",
+					"name": "/status/{{kickoff_id}}",
 					"request": {
 						"method": "GET",
 						"header": [
@@ -277,6 +277,272 @@
 				}
 			],
 			"description": "[https://github.com/crewAIInc/crewAI?tab=readme-ov-file#2-setting-up-your-crew-with-the-yaml-configuration](https://github.com/crewAIInc/crewAI?tab=readme-ov-file#2-setting-up-your-crew-with-the-yaml-configuration)\n\n[https://github.com/mmuller88/crewai_seo_article](https://github.com/mmuller88/crewai_seo_article)\n\nresearcher: role: > {topic} Senior Data Researcher goal: > Uncover cutting-edge developments in {topic} backstory: > You're a seasoned researcher with a knack for uncovering the latest developments in {topic}. Known for your ability to find the most relevant information and present it in a clear and concise manner.\n\nreporting_analyst: role: > {topic} Reporting Analyst goal: > Create detailed reports based on {topic} data analysis and research findings backstory: > You're a meticulous analyst with a keen eye for detail. You're known for your ability to turn complex data into clear and concise reports, making it easy for others to understand and act on the information you provide."
+		},
+		{
+			"name": "/inputs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en,de;q=0.9,en-US;q=0.8,de-DE;q=0.7,fi;q=0.6"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer 13912fe48276"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://app.crewai.com"
+					},
+					{
+						"key": "priority",
+						"value": "u=1, i"
+					},
+					{
+						"key": "referer",
+						"value": "https://app.crewai.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Google Chrome\";v=\"132\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "https://crewai-seo-article-78b9aa82-dbcc-4f50-95d0--909721d6.crewai.com/inputs",
+					"protocol": "https",
+					"host": [
+						"crewai-seo-article-78b9aa82-dbcc-4f50-95d0--909721d6",
+						"crewai",
+						"com"
+					],
+					"path": [
+						"inputs"
+					]
+				},
+				"description": "Generated from cURL: curl 'https://crewai-seo-article-78b9aa82-dbcc-4f50-95d0--909721d6.crewai.com/inputs' \\\n  -H 'accept: */*' \\\n  -H 'accept-language: en,de;q=0.9,en-US;q=0.8,de-DE;q=0.7,fi;q=0.6' \\\n  -H 'authorization: Bearer 13912fe48276' \\\n  -H 'content-type: application/json' \\\n  -H 'origin: https://app.crewai.com' \\\n  -H 'priority: u=1, i' \\\n  -H 'referer: https://app.crewai.com/' \\\n  -H 'sec-ch-ua: \"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Google Chrome\";v=\"132\"' \\\n  -H 'sec-ch-ua-mobile: ?0' \\\n  -H 'sec-ch-ua-platform: \"macOS\"' \\\n  -H 'sec-fetch-dest: empty' \\\n  -H 'sec-fetch-mode: cors' \\\n  -H 'sec-fetch-site: same-site' \\\n  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36'"
+			},
+			"response": []
+		},
+		{
+			"name": "/kickoff",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = pm.response.json();",
+							"",
+							"const old_kickoff_id = pm.environment.get(\"kickoff_id\");",
+							"const new_kickoff_id = jsonData.kickoff_id;",
+							"",
+							"pm.test(\"should have new kickoff_id\", function () {",
+							"    pm.expect(new_kickoff_id).to.not.be.undefined;",
+							"    pm.expect(new_kickoff_id).to.not.equal(old_kickoff_id);",
+							"});",
+							"",
+							"pm.environment.set(\"kickoff_id\", new_kickoff_id);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en,de;q=0.9,en-US;q=0.8,de-DE;q=0.7,fi;q=0.6"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer 13912fe48276"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://app.crewai.com"
+					},
+					{
+						"key": "priority",
+						"value": "u=1, i"
+					},
+					{
+						"key": "referer",
+						"value": "https://app.crewai.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Google Chrome\";v=\"132\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"inputs\":{\"Farbe\":\"Schwarz\",\"Material\":\"100% Kaschmir\",\"Passform\":\"Slim Fit\",\"Strickart\":\"Strickpullover\",\"Produktname\":\"Pullover\",\"Garnfeinheit\":\"20/22\",\"Maschendichte\":\"9\"},\"trainingFilename\":\"\",\"generateArtifact\":false}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://crewai-seo-article-78b9aa82-dbcc-4f50-95d0--909721d6.crewai.com/kickoff",
+					"protocol": "https",
+					"host": [
+						"crewai-seo-article-78b9aa82-dbcc-4f50-95d0--909721d6",
+						"crewai",
+						"com"
+					],
+					"path": [
+						"kickoff"
+					]
+				},
+				"description": "Generated from cURL: curl 'https://crewai-seo-article-78b9aa82-dbcc-4f50-95d0--909721d6.crewai.com/kickoff' \\\n  -H 'accept: */*' \\\n  -H 'accept-language: en,de;q=0.9,en-US;q=0.8,de-DE;q=0.7,fi;q=0.6' \\\n  -H 'authorization: Bearer 13912fe48276' \\\n  -H 'content-type: application/json' \\\n  -H 'origin: https://app.crewai.com' \\\n  -H 'priority: u=1, i' \\\n  -H 'referer: https://app.crewai.com/' \\\n  -H 'sec-ch-ua: \"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Google Chrome\";v=\"132\"' \\\n  -H 'sec-ch-ua-mobile: ?0' \\\n  -H 'sec-ch-ua-platform: \"macOS\"' \\\n  -H 'sec-fetch-dest: empty' \\\n  -H 'sec-fetch-mode: cors' \\\n  -H 'sec-fetch-site: same-site' \\\n  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36' \\\n  --data-raw '{\"inputs\":{\"Farbe\":\"Schwarz\",\"Material\":\"100% Kaschmir\",\"Passform\":\"Slim Fit\",\"Strickart\":\"Strickpullover\",\"Produktname\":\"Pullover\",\"Garnfeinheit\":\"20/22\",\"Maschendichte\":\"9\"},\"trainingFilename\":\"\",\"generateArtifact\":false}'"
+			},
+			"response": []
+		},
+		{
+			"name": "/status/{{kickoff_id}}",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "accept",
+						"value": "*/*"
+					},
+					{
+						"key": "accept-language",
+						"value": "en,de;q=0.9,en-US;q=0.8,de-DE;q=0.7,fi;q=0.6"
+					},
+					{
+						"key": "authorization",
+						"value": "Bearer 13912fe48276"
+					},
+					{
+						"key": "content-type",
+						"value": "application/json"
+					},
+					{
+						"key": "origin",
+						"value": "https://app.crewai.com"
+					},
+					{
+						"key": "priority",
+						"value": "u=1, i"
+					},
+					{
+						"key": "referer",
+						"value": "https://app.crewai.com/"
+					},
+					{
+						"key": "sec-ch-ua",
+						"value": "\"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Google Chrome\";v=\"132\""
+					},
+					{
+						"key": "sec-ch-ua-mobile",
+						"value": "?0"
+					},
+					{
+						"key": "sec-ch-ua-platform",
+						"value": "\"macOS\""
+					},
+					{
+						"key": "sec-fetch-dest",
+						"value": "empty"
+					},
+					{
+						"key": "sec-fetch-mode",
+						"value": "cors"
+					},
+					{
+						"key": "sec-fetch-site",
+						"value": "same-site"
+					},
+					{
+						"key": "user-agent",
+						"value": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36"
+					}
+				],
+				"url": {
+					"raw": "https://crewai-seo-article-78b9aa82-dbcc-4f50-95d0--909721d6.crewai.com/status/{{kickoff_id}}",
+					"protocol": "https",
+					"host": [
+						"crewai-seo-article-78b9aa82-dbcc-4f50-95d0--909721d6",
+						"crewai",
+						"com"
+					],
+					"path": [
+						"status",
+						"{{kickoff_id}}"
+					]
+				},
+				"description": "Generated from cURL: curl 'https://crewai-seo-article-78b9aa82-dbcc-4f50-95d0--909721d6.crewai.com/status/4e6b14ed-8253-4397-88c7-64d86581ac82' \\\n  -H 'accept: */*' \\\n  -H 'accept-language: en,de;q=0.9,en-US;q=0.8,de-DE;q=0.7,fi;q=0.6' \\\n  -H 'authorization: Bearer 13912fe48276' \\\n  -H 'content-type: application/json' \\\n  -H 'origin: https://app.crewai.com' \\\n  -H 'priority: u=1, i' \\\n  -H 'referer: https://app.crewai.com/' \\\n  -H 'sec-ch-ua: \"Not A(Brand\";v=\"8\", \"Chromium\";v=\"132\", \"Google Chrome\";v=\"132\"' \\\n  -H 'sec-ch-ua-mobile: ?0' \\\n  -H 'sec-ch-ua-platform: \"macOS\"' \\\n  -H 'sec-fetch-dest: empty' \\\n  -H 'sec-fetch-mode: cors' \\\n  -H 'sec-fetch-site: same-site' \\\n  -H 'user-agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/132.0.0.0 Safari/537.36'"
+			},
+			"response": []
 		}
 	]
 }

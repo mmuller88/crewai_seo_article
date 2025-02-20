@@ -3,13 +3,6 @@ article_content_task:
     Erstelle eine freundliche, sachliche und erklärende
     Produktbeschreibung für folgendes Kleidungsstück:
     - **Produktname:** {Produktname}
-    - **Material:** {Material}
-    - **Strickart:** {Strickart}
-    - **Maschendichte:** {Maschendichte} Gauge (bitte ausgeschrieben
-    angeben)
-    - **Garnfeinheit (Ne-Wert):** {Garnfeinheit}
-    - **Passform:** {Passform}
-    - **Farbe:** {Farbe}
 
     Die Beschreibung soll zwischen 75 und 125 Wörtern lang
     sein und die Temperature_Empfehlung beinhalten.
@@ -18,6 +11,14 @@ article_content_task:
     die alle genannten Produkteigenschaften enthält und zwischen 75 und 125 Wörtern lang ist.
     Der Text soll in einem zusammenhängenden Absatz formatiert sein.
   agent: article_content_writer
+
+    # - **Material:** {Material}
+    # - **Strickart:** {Strickart}
+    # - **Maschendichte:** {Maschendichte} Gauge (bitte ausgeschrieben
+    # angeben)
+    # - **Garnfeinheit (Ne-Wert):** {Garnfeinheit}
+    # - **Passform:** {Passform}
+    # - **Farbe:** {Farbe}
 
 # research_task:
 #   description: >
