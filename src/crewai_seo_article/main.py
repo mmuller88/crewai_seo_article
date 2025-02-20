@@ -13,6 +13,7 @@ warnings.filterwarnings("ignore", category=SyntaxWarning, module="pysbd")
 # Replace with inputs you want to test with, it will automatically
 # interpolate any tasks and agents information
 
+
 def run():
     """
     Run the crew.
@@ -20,19 +21,19 @@ def run():
     # Available gauge values from the temperature recommendation table
     gauge_options = ['16', '12', '9', '7', '5', '3']
     product_options = ['T-Shirt', 'Pullover']
-    
+
     inputs = {
         'Produktname': random.choice(product_options),
-        'Material': '100% Kaschmir',
-        'Strickart': 'Strickpullover',
-        'Maschendichte': random.choice(gauge_options),
-        'Garnfeinheit': '20/22',
-        'Passform': 'Slim Fit',
-        'Farbe': 'Schwarz',
+        # 'Material': '100% Kaschmir',
+        # 'Strickart': 'Strickpullover',
+        # 'Maschendichte': random.choice(gauge_options),
+        # 'Garnfeinheit': '20/22',
+        # 'Passform': 'Slim Fit',
+        # 'Farbe': 'Schwarz',
         # 'topic': 'AI LLMs',
         # 'current_year': str(datetime.now().year)
     }
-    
+
     try:
         CrewaiSeoArticle().crew().kickoff(inputs=inputs)
     except Exception as e:
@@ -45,19 +46,21 @@ def train():
     """
     inputs = {
         "Produktname": "T-Shirt",
-        "Material": "100% Baumwolle",
-        "Strickart": "Strickpullover",
-        "Maschendichte": "22 Gauge",
-        "Garnfeinheit": "20/22",
-        "Passform": "Slim Fit",
-        "Farbe": "Schwarz",
+        # "Material": "100% Baumwolle",
+        # "Strickart": "Strickpullover",
+        # "Maschendichte": "22 Gauge",
+        # "Garnfeinheit": "20/22",
+        # "Passform": "Slim Fit",
+        # "Farbe": "Schwarz",
         # 'topic': 'AI LLMs',
     }
     try:
-        CrewaiSeoArticle().crew().train(n_iterations=int(sys.argv[1]), filename=sys.argv[2], inputs=inputs)
+        CrewaiSeoArticle().crew().train(n_iterations=int(
+            sys.argv[1]), filename=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while training the crew: {e}")
+
 
 def replay():
     """
@@ -69,22 +72,24 @@ def replay():
     except Exception as e:
         raise Exception(f"An error occurred while replaying the crew: {e}")
 
+
 def test():
     """
     Test the crew execution and returns the results.
     """
     inputs = {
         'Produktname': 'T-Shirt',
-        'Material': '100% Baumwolle',
-        'Strickart': 'Strickpullover',
-        'Maschendichte': '22 Gauge',
-        'Garnfeinheit': '20/22',
-        'Passform': 'Slim Fit',
-        'Farbe': 'Schwarz',
+        # 'Material': '100% Baumwolle',
+        # 'Strickart': 'Strickpullover',
+        # 'Maschendichte': '22 Gauge',
+        # 'Garnfeinheit': '20/22',
+        # 'Passform': 'Slim Fit',
+        # 'Farbe': 'Schwarz',
         # "topic": "AI LLMs"
     }
     try:
-        CrewaiSeoArticle().crew().test(n_iterations=int(sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
+        CrewaiSeoArticle().crew().test(n_iterations=int(
+            sys.argv[1]), openai_model_name=sys.argv[2], inputs=inputs)
 
     except Exception as e:
         raise Exception(f"An error occurred while testing the crew: {e}")
