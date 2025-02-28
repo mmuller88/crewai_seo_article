@@ -23,7 +23,7 @@ def run():
     product_options = ['T-Shirt', 'Pullover']
 
     inputs = {
-        'Produktname': random.choice(product_options),
+        'Produktname': 'T-Shirt', # random.choice(product_options),
         # 'Material': '100% Kaschmir',
         # 'Strickart': 'Strickpullover',
         # 'Maschendichte': random.choice(gauge_options),
