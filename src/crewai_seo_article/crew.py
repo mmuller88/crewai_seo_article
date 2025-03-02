@@ -72,6 +72,18 @@ class CrewaiSeoArticle():
             tools=[search_tool],
             knowledge_sources=[self.text_source]
         )
+    
+    @agent
+    def also_asked_answerer(self) -> Agent:
+
+        return Agent(
+            role="Auch gefragt Antworter",
+            goal="Antworte auf die Fragen, die die Nutzer häufiger stellen.",
+            # config=self.agents_config['article_content_writer'],
+            backstory="Sie sind ein erfahrener Antworter und haben ein großes Interesse an den Bedürfnissen und Wünschen der Nutzer. Sie sind ein Experte für das Finden von Informationen und haben ein gutes Gespür für die Bedürfnisse der Nutzer.",
+            verbose=True,
+            knowledge_sources=[self.text_source]
+        )
 
     # To learn more about structured task outputs,
     # task dependencies, and task callbacks, check out the documentation:
@@ -100,9 +112,19 @@ class CrewaiSeoArticle():
     def also_asked_task(self) -> Task:
         return Task(
             config={
-                'description': "Finde heraus, welche Fragen die Nutzer häufiger stellen und welche Themen sie interessieren.",
+                'description': "Finde die fünf häufigsten Fragen heraus, welche die Nutzer stellen und welche Themen sie interessieren im Zusammenhang mit dem Produkt.",
                 'expected_output': "Eine Liste von Fragen und Themen, die die Nutzer häufiger stellen und interessieren.",
                 'agent': self.also_asked_researcher()
+            }
+        )
+
+    @task
+    def also_asked_answerer_task(self) -> Task:
+        return Task(
+            config={
+                'description': "Antworte auf die Fragen, die die Nutzer häufiger stellen.",
+                'expected_output': "Eine Liste von Fragen und Antworten.",
+                'agent': self.also_asked_answerer()
             }
         )
 
