@@ -3,7 +3,8 @@ article_content_task:
     Erstelle eine freundliche, sachliche und erklärende
     Produktbeschreibung für folgendes Kleidungsstück:
     - **Produktname:** {Produktname}
-
+    - **Material:** {Material}
+    
     Die Beschreibung soll zwischen 75 und 125 Wörtern lang
     sein und die Temperature_Empfehlung beinhalten.
   expected_output: >

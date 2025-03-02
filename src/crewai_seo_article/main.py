@@ -24,6 +24,7 @@ def run():
 
     inputs = {
         'Produktname': 'T-Shirt', # random.choice(product_options),
+        "Material": "Caschmier",
         # 'Material': '100% Kaschmir',
         # 'Strickart': 'Strickpullover',
         # 'Maschendichte': random.choice(gauge_options),
@@ -46,7 +47,7 @@ def train():
     """
     inputs = {
         "Produktname": "T-Shirt",
-        # "Material": "100% Baumwolle",
+        "Material": "Caschmier",
         # "Strickart": "Strickpullover",
         # "Maschendichte": "22 Gauge",
         # "Garnfeinheit": "20/22",
