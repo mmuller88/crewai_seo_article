@@ -45,7 +45,7 @@ class CrewaiSeoArticle():
             config=self.agents_config['also_asked_researcher'],
             verbose=True,
             tools=[search_tool],
-            knowledge_sources=[self.text_source]
+            # knowledge_sources=[self.text_source]
         )
     
     @agent
@@ -85,7 +85,7 @@ class CrewaiSeoArticle():
             agents=self.agents,  # Automatically created by the @agent decorator
             tasks=self.tasks,  # Automatically created by the @task decorator
             process=Process.sequential,
-            memory=True,
+            # memory=True,
             verbose=True,
             # process=Process.hierarchical, # In case you wanna use that instead https://docs.crewai.com/how-to/Hierarchical/
         )
