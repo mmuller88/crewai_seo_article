@@ -35,7 +35,7 @@ class CrewaiSeoArticle():
         return Agent(
             config=self.agents_config['article_content_writer'],
             verbose=True,
-            knowledge_sources=[self.text_source]
+            # knowledge_sources=[self.text_source]
         )
 
     @agent
@@ -53,7 +53,7 @@ class CrewaiSeoArticle():
         return Agent(
             config=self.agents_config['also_asked_answerer'],
             verbose=True,
-            knowledge_sources=[self.text_source]
+            # knowledge_sources=[self.text_source]
         )
 
     @task
