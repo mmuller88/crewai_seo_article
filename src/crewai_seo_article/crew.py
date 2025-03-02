@@ -123,7 +123,7 @@ class CrewaiSeoArticle():
         return Task(
             config={
                 'description': "Antworte auf die Fragen, die die Nutzer häufiger stellen.",
-                'expected_output': "Eine Liste von Fragen und Antworten.",
+                'expected_output': "Die Produktbeschreibung und eine Liste von Fragen und Antworten.",
                 'agent': self.also_asked_answerer()
             }
         )
